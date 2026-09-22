@@ -23,34 +23,35 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow-y: auto; /* Allows scrolling on smaller displays */
+  padding: 10px 0;
 }
 
 #game-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  max-width: 100vw;
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;
   padding: 10px;
 }
 
 /* Header UI */
 #ui-header {
   width: 100%;
-  max-width: 600px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: var(--panel-bg);
-  padding: 12px 20px;
+  padding: 10px 18px;
   border-radius: 12px;
   border: 1px solid rgba(0, 243, 255, 0.2);
   box-shadow: 0 0 15px rgba(0, 243, 255, 0.1);
 }
 
 #game-title {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 800;
   letter-spacing: 2px;
   color: var(--primary-cyan);
@@ -70,18 +71,18 @@ body {
 }
 
 .stat-value {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   color: #fff;
 }
 
-/* Canvas Wrapper & Overlays */
+/* Responsive Canvas Wrapper */
 #canvas-wrapper {
   position: relative;
-  width: 600px;
-  height: 600px;
-  max-width: 90vw;
-  max-height: 90vw;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Maintains perfect square shape automatically */
+  max-height: calc(100vh - 120px); /* Prevents spilling off the bottom of the screen */
+  max-width: calc(100vh - 120px);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 0 30px rgba(0, 243, 255, 0.15);
@@ -95,6 +96,7 @@ body {
   display: block;
 }
 
+/* Overlays */
 .overlay {
   position: absolute;
   top: 0;
@@ -107,11 +109,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
   z-index: 10;
+  padding: 10px;
+  text-align: center;
 }
 
 .overlay.active {
@@ -120,12 +124,11 @@ body {
 }
 
 .glow-text {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
   font-weight: 900;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   color: var(--primary-cyan);
   text-shadow: 0 0 20px var(--primary-cyan);
-  text-align: center;
 }
 
 .glow-text.danger {
@@ -134,24 +137,25 @@ body {
 }
 
 .subtitle {
-  font-size: 0.9rem;
-  letter-spacing: 2px;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
   color: #aaa;
 }
 
 .difficulty-select {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .diff-btn {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
-  padding: 8px 16px;
+  padding: 6px 14px;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s;
+  font-size: 0.85rem;
 }
 
 .diff-btn.active, .diff-btn:hover {
@@ -166,9 +170,9 @@ body {
   color: #000;
   border: none;
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 0.95rem;
   letter-spacing: 2px;
-  padding: 12px 32px;
+  padding: 10px 28px;
   border-radius: 30px;
   cursor: pointer;
   box-shadow: 0 0 20px var(--primary-cyan);
@@ -185,23 +189,23 @@ body {
   display: none;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   margin-top: 5px;
 }
 
 .dpad-row {
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
 .dpad-btn {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   background: var(--panel-bg);
   border: 1px solid rgba(0, 243, 255, 0.3);
   color: var(--primary-cyan);
-  font-size: 1.2rem;
-  border-radius: 10px;
+  font-size: 1.1rem;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
