@@ -2,7 +2,7 @@
 
 A fast-paced, cyber-themed 2D Snake game built using modern HTML5 Canvas, CSS3, and JavaScript. Features synthesized sound effects, dynamic particle explosions, responsive mobile touch / virtual D-pad controls, and persistent high scores.
 
-🎮 **[Play the Live Demo Here](https://<YOUR-GITHUB-USERNAME>.github.io/neon-snake-game/)**
+🎮 **[Play the Live Demo Here](https://aashfaak.github.io/Neon-Snake-Game/)**
 
 ---
 
@@ -38,4 +38,4 @@ A fast-paced, cyber-themed 2D Snake game built using modern HTML5 Canvas, CSS3, 
 
 1. Clone or download this repository:
    ```bash
-   git clone [https://github.com/](https://github.com/)<YOUR-GITHUB-USERNAME>/neon-snake-game.git
+   git clone [https://github.com/aashfaak/Neon-Snake-Game.git](https://github.com/aashfaak/Neon-Snake-Game.git)
